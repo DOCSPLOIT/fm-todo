@@ -26,18 +26,20 @@ function App() {
   },)
 
   return (
-    <Database>
-      <div className={'w-screen bg-[hsl(236,33%,92%)] min-h-screen md:h-screen  dark:bg-[#181824]' + (isDarkMode ? ' darkBackground' : ' lightBackground')}>
-        <div className='m-auto lg:w-2/5 md:w-3/4 px-4 pt-[4.8rem]'>
-          <div className="flex">
-            <h1 className='text-4xl font-extrabold tracking-[.5em] text-white'>TODO</h1>
-            <img onClick={() => setIsDarkMode(!isDarkMode)} src={isDarkMode ? Sun : Moon} className="h-full ml-auto cursor-pointer" />
+    <main>
+      <Database>
+        <div className={'w-screen bg-[hsl(236,33%,92%)] min-h-screen md:h-screen  dark:bg-[#181824]' + (isDarkMode ? ' darkBackground' : ' lightBackground')}>
+          <div className='m-auto lg:w-2/5 md:w-3/4 px-4 pt-[4.8rem]'>
+            <div className="flex">
+              <h1 className='text-4xl font-extrabold tracking-[.5em] text-white'>TODO</h1>
+              <img alt='theme' onClick={() => setIsDarkMode(!isDarkMode)} src={isDarkMode ? Sun : Moon} className="h-full ml-auto cursor-pointer" />
+            </div>
+            <Input />
+            <ListItems />
           </div>
-          <Input />
-          <ListItems />
         </div>
-      </div>
-    </Database>
+      </Database>
+    </main>
 
   )
 }

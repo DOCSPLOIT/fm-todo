@@ -88,7 +88,7 @@ export const ListItem = (props: any) => {
         {
             show && <img onClick={() => {
                 props.onClickRemove(props.item)
-            }} src={Cross} className="h-full m-auto cursor-pointer" />
+            }} src={Cross} alt="close" className="h-full m-auto cursor-pointer" />
         }
     </div >
 }
