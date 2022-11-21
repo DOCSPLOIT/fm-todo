@@ -23,7 +23,7 @@ export const Input = () => {
         setValue(value)
     }
     return (
-        <div className='mt-10 w-full drop-shadow bg-white dark:bg-[#25273c]  h-16 overflow-hidden flex rounded-md'>
+        <div className='transition duration-1000 mt-10 w-full drop-shadow bg-white dark:bg-[#25273c]  h-16 overflow-hidden flex rounded-md'>
             <div className=' h-16 w-16 flex'>
                 <div className='w-6 h-6 rounded-full border border-[#313348] m-auto' ></div>
             </div>

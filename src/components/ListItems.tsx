@@ -20,15 +20,19 @@ export const ListItems = () => {
         }
     }
     return (
-        <>        <div className='dark:bg-[#25273c] bg-white mt-6 drop-shadow-2xl rounded'>{todoCtx.items.map(t => {
-            return <ListItem key={t._id} item={t} onClickRemove={(item: any) => {
-                todoCtx.remove(item)
-            }} onClickComplete={(item: any) => {
-                item.status = "c"
-                todoCtx.upsert(item)
-            }} />
-        })}
-            <div className='h-16 flex justify-between items-center px-6'>
+        <>        <div className=' transition-[background-color] duration-1000 dark:bg-[#25273c] h-[60vh]  flex flex-col bg-white mt-6  rounded'>
+            {todoCtx.items.length > 0 && <div className="grow overflow-y-scroll ">
+                {todoCtx.items.map(t => {
+                    return <ListItem key={t._id} item={t} onClickRemove={(item: any) => {
+                        todoCtx.remove(item)
+                    }} onClickComplete={(item: any) => {
+                        item.status = "c"
+                        todoCtx.upsert(item)
+                    }} />
+                })}
+            </div>}
+            {todoCtx.items.length === 0 && (<div className='grow flex'><p className='text-gray-600 m-auto'>No items</p></div>)}
+            <div className='h-16 py-5 flex justify-between items-center px-6'>
                 <small className='text-gray-600'>{length} items left</small>
                 <div className='space-x-2 hidden md:block'>
                     <span onClick={() => filterList(0)} className={(filter === 0 ? 'text-[#5676bf] hover:text-[#5676bf]' : "dark:text-[#5c5d77] text-[hsl(236,9%,61%)]") + ' font-bold hover:text-[#5c5d77] dark:hover:text-white cursor-pointer'}>All</span>
@@ -38,7 +42,7 @@ export const ListItems = () => {
                 <p onClick={todoCtx.removeCompleted} className='font-bold  dark:hover:text-white text-[hsl(236,9%,61%)] cursor-pointer hover:text-[#5c5d77] dark:text-[#5c5d77]'>Clear Completed</p>
             </div>
         </div>
-            <div className='md:hidden bg-white mt- h-12 flex rounded-md mt-12 justify-center items-center px-6'>
+            <div className='md:hidden dark:bg-[#25273c] bg-white mt- h-12 flex rounded-md mt-12 justify-center items-center px-6'>
                 <div className='space-x-2 '>
                     <span onClick={() => filterList(0)} className={(filter === 0 ? 'text-[#5676bf] hover:text-[#5676bf]' : "dark:text-[#5c5d77] text-[hsl(236,9%,61%)]") + ' font-bold hover:text-[#5c5d77] dark:hover:text-white cursor-pointer'}>All</span>
                     <span onClick={() => filterList(1)} className={(filter === 1 ? 'text-[#5676bf] hover:text-[#5676bf]' : "dark:text-[#5c5d77] text-[hsl(236,9%,61%)]") + ' font-bold hover:text-[#5c5d77] dark:hover:text-white cursor-pointer'}>Active</span>
